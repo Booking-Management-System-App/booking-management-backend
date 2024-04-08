@@ -2,9 +2,8 @@ const { app } = require('@azure/functions');
 
 const { CosmosClient } = require("@azure/cosmos");
 
-const endpoint = process.env["CosmosDbEndpoint"];
-const key = process.env["CosmosDbKey"];
-const client = new CosmosClient({ endpoint, key });
+const connectionString = process.env["CosmosDbConnectionString"];
+const client = new CosmosClient(connectionString);
 const database = client.database("booking-management-system");
 const container = database.container("AvailableSlots");
 
