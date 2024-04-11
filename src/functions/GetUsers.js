@@ -11,8 +11,9 @@ const container = database.container("Users");
  * Get all users.
  * @returns {object} The response object.
  */
-app.http('users', {
+app.http('GetUsers', {
     methods: ['GET'],
+    route: 'users',
     authLevel: 'anonymous',
     handler: async (request, context) => {
         context.log('JavaScript HTTP trigger function to get all users.');

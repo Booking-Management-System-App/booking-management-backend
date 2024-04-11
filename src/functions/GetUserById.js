@@ -11,16 +11,17 @@ const container = database.container("Users");
  * Get the user by their ID.
  * @returns {object} The response object.
  */
-app.http('user', {
+app.http('GetUserById', {
     methods: ['GET'],
+    route: 'user/{userId}',
     authLevel: 'anonymous',
     handler: async (request, context) => {
         context.log('JavaScript HTTP trigger function to get user by ID.');
 
-        const id = request.query.get('id');
+        const userId = request.params.userId;
 
         const { resources: user } = await container.items
-            .query(`SELECT * FROM c WHERE c.userId = "${id}"`)
+            .query(`SELECT * FROM c WHERE c.userId = "${userId}"`)
             .fetchAll();
 
         context.res = {
