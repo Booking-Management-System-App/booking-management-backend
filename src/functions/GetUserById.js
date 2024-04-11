@@ -13,7 +13,7 @@ const container = database.container("Users");
  */
 app.http('GetUserById', {
     methods: ['GET'],
-    route: 'user/{userId}',
+    route: 'users/{userId}',
     authLevel: 'anonymous',
     handler: async (request, context) => {
         context.log('JavaScript HTTP trigger function to get user by ID.');
