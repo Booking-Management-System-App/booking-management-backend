@@ -12,7 +12,7 @@ const container = database.container("Users");
  * @returns {object} The response object.
  */
 app.http('users', {
-    methods: ['GET', 'POST'],
+    methods: ['GET'],
     authLevel: 'anonymous',
     handler: async (request, context) => {
         context.log('JavaScript HTTP trigger function to get all users.');

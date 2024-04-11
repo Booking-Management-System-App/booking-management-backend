@@ -11,8 +11,8 @@ const container = database.container("Users");
  * Get the user by their ID.
  * @returns {object} The response object.
  */
-app.http('getUserById', {
-    methods: ['GET', 'POST'],
+app.http('user', {
+    methods: ['GET'],
     authLevel: 'anonymous',
     handler: async (request, context) => {
         context.log('JavaScript HTTP trigger function to get user by ID.');
