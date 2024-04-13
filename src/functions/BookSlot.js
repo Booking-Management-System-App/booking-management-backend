@@ -21,12 +21,13 @@ app.http('BookSlot', {
         const requestBody = await request.json();
         const slotId = requestBody.slotId;
         const userId = requestBody.userId;
+        const date = requestBody.date;
 
         // Get the slot with the given id
         const { resources: [slot] } = await slotsContainer.items
             .query({
-                query: "SELECT * FROM c WHERE c.slotId = @slotId",
-                parameters: [{ name: "@slotId", value: slotId }]
+                query: "SELECT * FROM c WHERE c.slotId = @slotId AND c.date = @date",
+                parameters: [{ name: "@slotId", value: slotId }, { name: "@date", value: date }]
             })
             .fetchAll();
 
