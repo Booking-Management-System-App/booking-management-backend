@@ -44,13 +44,15 @@ app.http('UpdateUser', {
         }
 
         const updatedUser = {
+            ...user,
             userId: userId,
             name: name,
             email: email,
             phone: phone
         };
 
-        await container.items.upsert(updatedUser);
+        // Update the user
+        await container.item(user.id, user.userId).replace(updatedUser);
 
         context.res = {
             status: 200,
