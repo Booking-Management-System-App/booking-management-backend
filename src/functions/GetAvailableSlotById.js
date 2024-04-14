@@ -23,6 +23,17 @@ app.http('GetAvailableSlotById', {
         const { resources: availableSlot } = await container.items
             .query(`SELECT * FROM c WHERE c.slotId = "${slotId}"`)
             .fetchAll();
+        
+        if (!availableSlot || availableSlot.length === 0) {
+            context.res = {
+                status: 404,
+                body: JSON.stringify({ message: "Slot not found." }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
+            return context.res;
+        }
 
         context.res = {
             status: 200, /* Defaults to 200 */
