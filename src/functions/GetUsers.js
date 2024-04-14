@@ -5,25 +5,26 @@ const { CosmosClient } = require("@azure/cosmos");
 const connectionString = process.env["CosmosDbConnectionString"];
 const client = new CosmosClient(connectionString);
 const database = client.database("booking-management-system");
-const container = database.container("AvailableSlots");
+const container = database.container("Users");
 
 /**
- * Get all available slots.
+ * Get all users.
  * @returns {object} The response object.
  */
-app.http('available-slots', {
-    methods: ['GET', 'POST'],
+app.http('GetUsers', {
+    methods: ['GET'],
+    route: 'users',
     authLevel: 'anonymous',
     handler: async (request, context) => {
-        context.log('JavaScript HTTP trigger function to get all available slots.');
+        context.log('JavaScript HTTP trigger function to get all users.');
 
-        const { resources: availableSlots } = await container.items
+        const { resources: users } = await container.items
             .query("SELECT * FROM c")
             .fetchAll();
 
         context.res = {
             status: 200, /* Defaults to 200 */
-            body: JSON.stringify(availableSlots),
+            body: JSON.stringify(users),
             headers: {
                 'Content-Type': 'application/json'
             }
