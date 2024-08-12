@@ -14,7 +14,7 @@ const container = database.container("AvailableSlots");
 app.http('GetAvailableSlots', {
     methods: ['GET'],
     route: 'available-slots',
-    authLevel: 'anonymous',
+    authLevel: 'function',
     handler: async (request, context) => {
         context.log('JavaScript HTTP trigger function to get all available slots.');
 

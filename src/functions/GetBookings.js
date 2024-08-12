@@ -14,7 +14,7 @@ const container = database.container("Bookings");
 app.http('GetBookings', {
     methods: ['GET'],
     route: 'bookings',
-    authLevel: 'anonymous',
+    authLevel: 'function',
     handler: async (request, context) => {
         context.log('JavaScript HTTP trigger function to get all bookings.');
 

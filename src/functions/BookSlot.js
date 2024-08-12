@@ -15,7 +15,7 @@ const bookingsContainer = database.container("Bookings");
 app.http('BookSlot', {
     methods: ['POST'],
     route: 'book-slot',
-    authLevel: 'anonymous',
+    authLevel: 'function',
     handler: async (request, context) => {
         // Grab the json object from the request body
         const requestBody = await request.json();

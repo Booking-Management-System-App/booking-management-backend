@@ -14,7 +14,7 @@ const slotsContainer = database.container("AvailableSlots");
 app.http('CreateSlot', {
     methods: ['POST'],
     route: 'slots',
-    authLevel: 'anonymous',
+    authLevel: 'function',
     handler: async (request, context) => {
         // Grab the json object from the request body
         const requestBody = await request.json();

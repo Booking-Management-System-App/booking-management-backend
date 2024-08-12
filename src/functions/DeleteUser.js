@@ -14,7 +14,7 @@ const container = database.container("Users");
 app.http('DeleteUser', {
     methods: ['DELETE'],
     route: 'users/{userId}',
-    authLevel: 'anonymous',
+    authLevel: 'function',
     handler: async (request, context) => {
         const userId = request.params.userId;
 
