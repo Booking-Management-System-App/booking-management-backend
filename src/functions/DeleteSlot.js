@@ -14,7 +14,7 @@ const slotsContainer = database.container("AvailableSlots");
 app.http('DeleteSlot', {
     methods: ['DELETE'],
     route: 'slots/{slotId}',
-    authLevel: 'anonymous',
+    authLevel: 'function',
     handler: async (request, context) => {
         // Get the slot id from the route parameters
         const slotId = request.params.slotId;

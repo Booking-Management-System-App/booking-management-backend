@@ -14,7 +14,7 @@ const container = database.container("Users");
 app.http('UpdateUser', {
     methods: ['PUT'],
     route: 'users/{userId}',
-    authLevel: 'anonymous',
+    authLevel: 'function',
     handler: async (request, context) => {
         // Grab the json object from the request body
         const requestBody = await request.json();

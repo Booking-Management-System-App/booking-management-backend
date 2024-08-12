@@ -15,7 +15,7 @@ const bookingsContainer = database.container("Bookings");
 app.http('CancelBooking', {
     methods: ['DELETE'],
     route: 'bookings/{bookingId}',
-    authLevel: 'anonymous',
+    authLevel: 'function',
     handler: async (request, context) => {
         const bookingId = request.params.bookingId;
 
